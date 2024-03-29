@@ -10,6 +10,12 @@ var connection = new Server(server, {
 });
 connection.on('connection', function (socket) {
     console.log("client connected");
+    socket.on('chat message', function (msg) {
+        connection.emit('chat message', msg);
+    });
+    socket.on('disconnect', function () {
+        console.log('client disconnected');
+    });
 });
 server.listen(8000, function () {
     console.log("listen");

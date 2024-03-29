@@ -15,3 +15,9 @@
   height: 100%;
   margin-left: 4px;
 }
+.chat-container{
+  width:360px;
+  height: 300px;
+  border:1px solid black;
+}
+

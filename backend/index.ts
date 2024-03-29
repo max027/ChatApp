@@ -1,4 +1,4 @@
-const {createServer}=require("node:http")
+const {createServer}=require("node:http") 
 const express=require('express')
 const {Server}=require('socket.io')
 
@@ -13,6 +13,12 @@ const connection=new Server(server,{
 
 connection.on('connection',(socket)=>{
   console.log("client connected");
+  socket.on('chat message',(msg)=>{
+    connection.emit('chat message',msg)   
+  })
+  socket.on('disconnect',()=>{
+    console.log('client disconnected');
+  })
   
 })
 

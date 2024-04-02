@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useState,useEffect } from 'react'
 import {socket} from '../socket'
 import './Form.css'
@@ -50,7 +49,9 @@ function Form() {
     </ul>
     </div>
     <form className="Form" onSubmit={(e)=>handelSubmit(e)}>
+    <div className='chat-textbox'>
     <input onChange={(e)=>setMsg(e.target.value)} value={msg} className="input" />
+    </div>
     <button className="btn" type='submit'>send</button>
     </form>
     </div>
